@@ -80,8 +80,8 @@ public class Tests
         bagel.Name = "Plain";
         basket.Add(bagel);
 
-        bool result = basket.RemoveExist("Plain");
-        bool result2 = basket.RemoveExist("Onion");
+        bool result = basket.Remove("Plain");
+        bool result2 = basket.Remove("Onion");
         
         Assert.That(result, Is.True);
         Assert.That(result2, Is.False);

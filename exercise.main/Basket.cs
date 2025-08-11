@@ -39,23 +39,10 @@ namespace exercise.main
         {
             return _capacity > 0;
         }
-
-        public bool RemoveExist(string bagel)
-        {
-            foreach(Bagel b in _items)
-            {
-                if (b.Name == bagel)
-                {
-                    _items.Remove(b);
-                    return true; ;
-                }
-            }
-            return false;
-        }
-
+       
         public double TotalCost()
         {
-            throw new NotImplementedException();
+            return _items.Sum(product => product.Price);
         }
 
         public List<IProduct> Items { get { return _items; } }
