@@ -57,10 +57,10 @@ public class Tests
         basket.Add(bagel1);
         basket.Add(bagel2);
         basket.Add(bagel3);
-        basket.Add(bagel3);
+        basket.Add(bagel4);
         bool result = basket.IsFull();
 
-        Assert.That(result, Is.True);
+        Assert.That(result, Is.False);
 
     }
 }

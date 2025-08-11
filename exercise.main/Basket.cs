@@ -30,7 +30,7 @@ namespace exercise.main
 
         public bool IsFull()
         {
-            throw new NotImplementedException();
+            return _capacity > 0;
         }
 
         public List<IProduct> Items { get { return _items; } }
