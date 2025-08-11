@@ -21,11 +21,18 @@ namespace exercise.main
             }
         }
 
-        public bool Remove(Bagel bagel)
+        public bool Remove(string bagel)
         {
-            _items.Remove(bagel);
-            _capacity++;
-            return true;
+            foreach (Bagel b in _items)
+            {
+                if (b.Name == bagel)
+                {
+                    _items.Remove(b);
+                    _capacity++;
+                    return true;
+                }
+            }
+             return false;
         }
 
         public bool IsFull()
@@ -33,9 +40,17 @@ namespace exercise.main
             return _capacity > 0;
         }
 
-        public bool RemoveExist(Bagel bagel)
+        public bool RemoveExist(string bagel)
         {
-            throw new NotImplementedException();
+            foreach(Bagel b in _items)
+            {
+                if (b.Name == bagel)
+                {
+                    _items.Remove(b);
+                    return true; ;
+                }
+            }
+            return false;
         }
 
         public List<IProduct> Items { get { return _items; } }

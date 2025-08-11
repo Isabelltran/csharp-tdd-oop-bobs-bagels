@@ -30,7 +30,7 @@ public class Tests
 
         basket.Add(bagel);
         basket.Add(bagel1);
-        bool result = basket.Remove(bagel);
+        bool result = basket.Remove("Plain");
 
         Assert.That(result, Is.True);
         Assert.That(basket.Capacity, Is.EqualTo(4));
@@ -78,9 +78,13 @@ public class Tests
         Basket basket = new Basket();
         Bagel bagel = new Bagel();
         bagel.Name = "Plain";
-        bool result = basket.RemoveExist(bagel);
+        basket.Add(bagel);
 
+        bool result = basket.RemoveExist("Plain");
+        bool result2 = basket.RemoveExist("Onion");
+        
         Assert.That(result, Is.True);
+        Assert.That(result2, Is.False);
 
     }
 }
