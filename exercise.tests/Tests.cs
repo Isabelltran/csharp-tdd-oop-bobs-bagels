@@ -33,7 +33,7 @@ public class Tests
         bool result = basket.Remove(bagel);
 
         Assert.That(result, Is.True);
-        Assert.That(basket.Capacity, Is.EqualTo(4);
+        Assert.That(basket.Capacity, Is.EqualTo(4));
 
     }
 
@@ -62,5 +62,13 @@ public class Tests
 
         Assert.That(result, Is.False);
 
+    }
+    [Test]
+    public void ChangeCapacityTest()
+    {
+        Basket basket = new Basket();
+        basket.Capacity = 7;
+
+        Assert.That(basket.Capacity, Is.EqualTo(7));
     }
 }

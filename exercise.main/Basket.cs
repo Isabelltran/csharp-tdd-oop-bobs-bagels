@@ -35,6 +35,6 @@ namespace exercise.main
 
         public List<IProduct> Items { get { return _items; } }
 
-        public int Capacity { get { return _capacity; } }
+        public int Capacity { get { return _capacity; } set { _capacity = value; } }
     }
 }
