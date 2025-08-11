@@ -95,8 +95,8 @@ public class Tests
         Bagel bagel = new Bagel();
         Bagel bagel1 = new Bagel();
 
-        bagel.Price = 0.49;
-        bagel1.Price = 0.49;
+        bagel.BagelPrice = 0.49;
+        bagel1.BagelPrice = 0.49;
 
         basket.Add(bagel);
         basket.Add(bagel1);
@@ -109,31 +109,64 @@ public class Tests
     [Test]
     public void PriceBagelTest()
     {
-        Basket basket = new Basket();
+       
         Bagel bagel = new Bagel();
 
-        bagel.Price = 0.49;
+        bagel.BagelPrice = 0.49;
 
-        basket.Add(bagel);
+        Assert.That(bagel.BagelPrice, Is.EqualTo(0.49));
 
-        double price = basket.Items[0].Price;
-
-        Assert.That(price, Is.EqualTo(0.49));
+        
     }
 
     [Test]
-    public void ChoosefillingsTest()
+    public void AddFillingTest()
     {
+        Inventory inventory = new Inventory();
         Basket basket = new Basket();
         Bagel bagel = new Bagel();
 
-        bagel.Price = 0.49;
         basket.Add(bagel);
 
-        basket.Choosefillings(bagel, Fillings.Bacon);
+        Filling bacon = inventory.GetBaconFilling();
+        bagel.AddFilling(bacon);
 
-        Bagel test = (Bagel)basket.Items[0];
+       
 
-        Assert.That(test.Fillings[0], Is.EqualTo(Fillings.Bacon));
+        Assert.That(bagel.Filling.Count, Is.EqualTo(1));
+    }
+
+    [Test]
+    public void SeeFillingCostTest()
+    {
+        Inventory inventory = new Inventory();
+        Basket basket = new Basket();
+        Bagel bagel = new Bagel();
+        Filling bacon = inventory.GetBaconFilling();
+        Filling cheese = inventory.GetCheeseFilling();
+        bagel.AddFilling(bacon);
+        bagel.AddFilling(cheese);
+
+        bagel.SeeFillingCost();
+
+    }
+
+    [Test]
+    public void InventoryTest()
+    {
+        Basket basket = new Basket();
+        Inventory inventory = new Inventory();
+        Bagel bagel = inventory.getOnionBagel();
+        Filling bacon = inventory.GetBaconFilling();  
+        Coffee coffee = inventory.getBlackCoffee();
+
+        bagel.AddFilling(bacon);
+        basket.Add(bagel);
+        basket.Add(coffee);
+
+
+        // 0.49 + 0.12 + 0.99 = 0.61
+
+        Assert.That(basket.TotalCost, Is.EqualTo(1.6));
     }
 }

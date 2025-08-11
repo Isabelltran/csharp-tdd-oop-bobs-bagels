@@ -12,11 +12,11 @@ namespace exercise.main
         private int _capacity = 5;
         private List<IProduct> _items = new List<IProduct>();
 
-        public void Add(Bagel bagel)
+        public void Add(IProduct item)
         {
             if (_capacity > 0)
             {
-                _items.Add(bagel);
+                _items.Add(item);
                 _capacity--;
             }
         }
@@ -45,10 +45,10 @@ namespace exercise.main
             return _items.Sum(product => product.Price);
         }
 
-        public void Choosefillings(Bagel bagel, Fillings filling)
-        {
-            bagel.AddFilling(filling);
-        }
+        //public void Choosefillings(Bagel bagel, List<Filling> filling)
+        //{
+        //    bagel.AddFilling(filling);
+        //}
 
         public List<IProduct> Items { get { return _items; } }
 

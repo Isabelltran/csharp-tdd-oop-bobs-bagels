@@ -9,18 +9,32 @@ namespace exercise.main.Product
 {
     public class Bagel : IProduct
     {
-        private List<Fillings> _fillings = new List<Fillings> ();
 
-        public void AddFilling(Fillings filling)
+        private double _price;
+        private List<Filling> _filling = new List<Filling>();
+
+        public void AddFilling(Filling filling)
         {
-            _fillings.Add(filling);
+            _filling.Add(filling);
         }
 
-        
+
+        public void SeeFillingCost()
+        {
+            foreach (Filling filling in _filling)
+            {
+                Console.WriteLine($"Filling, {filling.Name}: {filling.Price}");
+            }
+
+        }
+
         public string Name { get; set; }
         public string ID { get; set; }
-        public double Price { get; set; }
 
-        public List<Fillings> Fillings { get { return _fillings; } }
+        public double BagelPrice { get { return _price; } set { _price = value; } }
+
+        public double Price { get { return _price + _filling.Sum(filling => filling.Price); } set; }
+
+        public List<Filling> Filling { get { return _filling; } }
     }
 }
