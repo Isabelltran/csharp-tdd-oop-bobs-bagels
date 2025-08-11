@@ -9,7 +9,7 @@ namespace exercise.main
 {
     public class Basket
     {
-        private int _capacity = 10;
+        private int _capacity = 5;
         private List<IProduct> _items = new List<IProduct>();
 
         public void Add(Bagel bagel)
@@ -26,6 +26,11 @@ namespace exercise.main
             _items.Remove(bagel);
             _capacity++;
             return true;
+        }
+
+        public bool IsFull()
+        {
+            throw new NotImplementedException();
         }
 
         public List<IProduct> Items { get { return _items; } }

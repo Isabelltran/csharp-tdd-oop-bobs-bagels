@@ -5,34 +5,62 @@ namespace exercise.tests;
 
 public class Tests
 {
-    private Basket _basket = new Basket();
+    
 
     [Test]
     public void AddTest()
     {
+        Basket basket = new Basket(); 
         Bagel bagel = new Bagel();
         bagel.Name = "Plain";
-        _basket.Add(bagel);
+        basket.Add(bagel);
 
-        Assert.That(_basket.Items[0].Name, Is.EqualTo("Plain"));
-        Assert.That(_basket.Capacity, Is.EqualTo(9));
+        Assert.That(basket.Items[0].Name, Is.EqualTo("Plain"));
+        Assert.That(basket.Capacity, Is.EqualTo(9));
     }
 
     [Test]
     public void RemoveTest()
     {
+        Basket basket = new Basket();
         Bagel bagel = new Bagel();
         Bagel bagel1 = new Bagel();
         bagel.Name = "Plain";
         bagel1.Name = "Onion";
 
-        _basket.Add(bagel);
-        _basket.Add(bagel1);
-        _basket.Remove(bagel);
-        bool result = _basket.Remove(bagel);
+        basket.Add(bagel);
+        basket.Add(bagel1);
+        bool result = basket.Remove(bagel);
 
         Assert.That(result, Is.True);
-        Assert.That(_basket.Capacity, Is.EqualTo(9));
+        Assert.That(basket.Capacity, Is.EqualTo(4);
+
+    }
+
+    [Test]
+    public void IsFullTest()
+    {
+        Basket basket = new Basket();
+        Bagel bagel = new Bagel();
+        Bagel bagel1 = new Bagel();
+        Bagel bagel2 = new Bagel();
+        Bagel bagel3 = new Bagel();
+        Bagel bagel4 = new Bagel();
+
+        bagel.Name = "Plain";
+        bagel1.Name = "Onion";
+        bagel2.Name = "Everything";
+        bagel3.Name = "Everything";
+        bagel4.Name = "Plain";
+
+        basket.Add(bagel);
+        basket.Add(bagel1);
+        basket.Add(bagel2);
+        basket.Add(bagel3);
+        basket.Add(bagel3);
+        bool result = basket.IsFull();
+
+        Assert.That(result, Is.True);
 
     }
 }
