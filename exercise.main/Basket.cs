@@ -21,6 +21,13 @@ namespace exercise.main
             }
         }
 
+        public bool Remove(Bagel bagel)
+        {
+            _items.Remove(bagel);
+            _capacity++;
+            return true;
+        }
+
         public List<IProduct> Items { get { return _items; } }
 
         public int Capacity { get { return _capacity; } }
