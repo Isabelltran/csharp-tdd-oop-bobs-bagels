@@ -16,7 +16,7 @@ public class Tests
         basket.Add(bagel);
 
         Assert.That(basket.Items[0].Name, Is.EqualTo("Plain"));
-        Assert.That(basket.Capacity, Is.EqualTo(9));
+        Assert.That(basket.Capacity, Is.EqualTo(4));
     }
 
     [Test]
@@ -70,5 +70,17 @@ public class Tests
         basket.Capacity = 7;
 
         Assert.That(basket.Capacity, Is.EqualTo(7));
+    }
+
+    [Test]
+    public void RemoveExistTest()
+    {
+        Basket basket = new Basket();
+        Bagel bagel = new Bagel();
+        bagel.Name = "Plain";
+        bool result = basket.RemoveExist(bagel);
+
+        Assert.That(result, Is.True);
+
     }
 }

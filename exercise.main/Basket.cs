@@ -33,6 +33,11 @@ namespace exercise.main
             return _capacity > 0;
         }
 
+        public bool RemoveExist(Bagel bagel)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<IProduct> Items { get { return _items; } }
 
         public int Capacity { get { return _capacity; } set { _capacity = value; } }
