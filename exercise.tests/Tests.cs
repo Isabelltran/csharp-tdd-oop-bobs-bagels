@@ -15,5 +15,6 @@ public class Tests
         _basket.Add(bagel);
 
         Assert.That(_basket.Items[0].Name, Is.EqualTo("Plain"));
+        Assert.That(_basket.Capacity, Is.EqualTo(9));
     }
 }

@@ -9,13 +9,20 @@ namespace exercise.main
 {
     public class Basket
     {
+        private int _capacity = 10;
         private List<IProduct> _items = new List<IProduct>();
 
         public void Add(Bagel bagel)
         {
-            throw new NotImplementedException();
+            if (_capacity > 0)
+            {
+                _items.Add(bagel);
+                _capacity--;
+            }
         }
 
         public List<IProduct> Items { get { return _items; } }
+
+        public int Capacity { get { return _capacity; } }
     }
 }
