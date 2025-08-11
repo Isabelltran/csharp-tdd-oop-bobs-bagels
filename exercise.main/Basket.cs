@@ -53,6 +53,11 @@ namespace exercise.main
             return false;
         }
 
+        public double TotalCost()
+        {
+            throw new NotImplementedException();
+        }
+
         public List<IProduct> Items { get { return _items; } }
 
         public int Capacity { get { return _capacity; } set { _capacity = value; } }

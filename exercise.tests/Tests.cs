@@ -87,4 +87,22 @@ public class Tests
         Assert.That(result2, Is.False);
 
     }
+
+    [Test]
+    public void TotalCostTest()
+    {
+        Basket basket = new Basket();
+        Bagel bagel = new Bagel();
+        Bagel bagel1 = new Bagel();
+
+        bagel.Price = 0.49;
+        bagel1.Price = 0.49;
+
+        basket.Add(bagel);
+        basket.Add(bagel1);
+
+        double price = basket.TotalCost();
+
+        Assert.That(price, Is.EqualTo(0.49 * 2));
+    }
 }
