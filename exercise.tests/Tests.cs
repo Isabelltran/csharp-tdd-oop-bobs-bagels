@@ -105,4 +105,35 @@ public class Tests
 
         Assert.That(price, Is.EqualTo(0.49 * 2));
     }
+
+    [Test]
+    public void PriceBagelTest()
+    {
+        Basket basket = new Basket();
+        Bagel bagel = new Bagel();
+
+        bagel.Price = 0.49;
+
+        basket.Add(bagel);
+
+        double price = basket.Items[0].Price;
+
+        Assert.That(price, Is.EqualTo(0.49));
+    }
+
+    [Test]
+    public void ChoosefillingsTest()
+    {
+        Basket basket = new Basket();
+        Bagel bagel = new Bagel();
+
+        bagel.Price = 0.49;
+        basket.Add(bagel);
+
+        basket.Choosefillings(bagel, Fillings.Bacon);
+
+        Bagel test = (Bagel)basket.Items[0];
+
+        Assert.That(test.Fillings[0], Is.EqualTo(Fillings.Bacon));
+    }
 }

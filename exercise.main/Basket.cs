@@ -45,6 +45,11 @@ namespace exercise.main
             return _items.Sum(product => product.Price);
         }
 
+        public void Choosefillings(Bagel bagel, Fillings filling)
+        {
+            bagel.AddFilling(filling);
+        }
+
         public List<IProduct> Items { get { return _items; } }
 
         public int Capacity { get { return _capacity; } set { _capacity = value; } }
