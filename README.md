@@ -93,6 +93,20 @@ So we don't get any weird requests,
 I want customers to only be able to order things that we stock in our inventory.
 ```
 
+
+```
+11.
+As a customer,
+So I don't over-spend,
+I'd like to get discount when I buy more than 6 bagels.
+```
+
+```
+11.
+As a customer,
+So I can see what each of the items costs,
+I'd like to get a receipt.
+```
 ## Bob's Inventory
 
 | SKU  | Price | Name    | Variant       |

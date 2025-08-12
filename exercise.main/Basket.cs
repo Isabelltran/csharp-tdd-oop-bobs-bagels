@@ -64,9 +64,23 @@ namespace exercise.main
             _capacity++;
         }
 
+        //public bool ValidSixBagels()
+        //{
+            
+        //    if (_items.Where(p => p.SKU == "BGLO")) 
+        //    {
+        //        return true;
+        //    }
+        //    if (_items.Any(p => p.SKU == "BGLP"))
+        //    { 
+        //        return true;
+        //    }
+        //    return false;
+        //}
+
         public double Discount()
         {
-            // Fix Later so Plain gets 0.39 if there is plain in the rest 
+            // All bagels cost the same 
             double total = 0;
             double coffeeDiscount = 0;
             List<Bagel> bagels = Amout_bagels();
@@ -90,12 +104,10 @@ namespace exercise.main
             }
 
             // Add coffee and Bagel Discount 
-
-
             int amout_coffeeDiscount = 0;
             int max = 0;
             int coffee = coffees.Count;
-            if (coffee > rest)
+            if (coffee > rest) // Maybe get this on one-line 
             {
                 max = coffee;
             }
@@ -115,10 +127,48 @@ namespace exercise.main
             }
 
             total += amout_coffeeDiscount * 1.25 + coffeeDiscount + (rest * 0.49) + (coffee * 0.99) + (BigPackBagels * 3.99) + (SmallPackBagels * 2.49);
-
-
+        
             return total;
         }
+
+        public string printReceipt()
+        {
+            
+            StringBuilder sb = new StringBuilder();
+            sb.Append($"~~~Bob's Bagels ~~~");
+            sb.Append($"\n{DateTime.Now.ToString()}");
+
+            sb.Append($"\n----------------------------");
+            
+            
+
+            foreach (IProduct item in _items)
+            {
+                sb.Append($"\n{item.Name} - £{item.Price}");
+            }
+            sb.Append($"\n----------------------------");
+            sb.Append($"\nTotal : {this.TotalCost()}");
+            sb.Append($"\nThank you for your order!");
+         
+            return sb.ToString();
+        }
+
+//        ~~~Bob's Bagels ~~~
+
+//    2021-03-16 21:38:44
+
+//----------------------------
+
+//Onion Bagel        2   £0.98
+//Plain Bagel        12  £3.99
+//Everything Bagel   6   £2.49
+//Coffee             3   £2.97
+
+//----------------------------
+//Total                 £10.43
+
+//        Thank you
+//      for your order!
 
         public bool IsFull() { return _capacity <= 0; }
        

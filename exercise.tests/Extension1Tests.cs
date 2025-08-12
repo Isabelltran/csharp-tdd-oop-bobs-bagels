@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace exercise.tests
 {
-    public class ExtensionTests
+    public class Extension1Tests
     {
         Basket _basket = new Basket();
 
@@ -17,48 +17,20 @@ namespace exercise.tests
         {
             Inventory inventory = new Inventory();
             Bagel bagel = inventory.getPlainBagel();
-            Bagel bagel1 = inventory.getPlainBagel();
-            Bagel bagel2 = inventory.getPlainBagel();
-            Bagel bagel3 = inventory.getPlainBagel();
-            Bagel bagel4 = inventory.getPlainBagel();
-            Bagel bagel5 = inventory.getPlainBagel();
-
-            _basket.Add(bagel);
-            _basket.Add(bagel1);
-            _basket.Add(bagel2);
-            _basket.Add(bagel3);
-            _basket.Add(bagel4);
-            _basket.Add(bagel5);
+            for (int i=0; i<6; i++)
+            {
+                _basket.Add(bagel);
+            }
         }
 
         private void AddTwelveBagels()
         {
             Inventory inventory = new Inventory();
             Bagel bagel = inventory.getPlainBagel();
-            Bagel bagel1 = inventory.getPlainBagel();
-            Bagel bagel2 = inventory.getPlainBagel();
-            Bagel bagel3 = inventory.getPlainBagel();
-            Bagel bagel4 = inventory.getPlainBagel();
-            Bagel bagel5 = inventory.getPlainBagel();
-            Bagel bagel6 = inventory.getPlainBagel();
-            Bagel bagel7 = inventory.getPlainBagel();
-            Bagel bagel8 = inventory.getPlainBagel();
-            Bagel bagel9 = inventory.getPlainBagel();
-            Bagel bagel10 = inventory.getPlainBagel();
-            Bagel bagel11 = inventory.getPlainBagel();
-
-            _basket.Add(bagel);
-            _basket.Add(bagel1);
-            _basket.Add(bagel2);
-            _basket.Add(bagel3);
-            _basket.Add(bagel4);
-            _basket.Add(bagel5);
-            _basket.Add(bagel6);
-            _basket.Add(bagel7);
-            _basket.Add(bagel8);
-            _basket.Add(bagel9);
-            _basket.Add(bagel10);
-            _basket.Add(bagel11);
+            for (int i = 0; i < 12; i++)
+            {
+                _basket.Add(bagel);
+            }
         }
 
         [Test]
@@ -114,20 +86,15 @@ namespace exercise.tests
         [Test]
         public void DiscountTestExampleTwo()
         {
-            AddTwelveBagels();
+            AddTwelveBagels(); // Onion ...
 
             // Adding 3 coffee and 2 Onion
             Inventory inventory = new Inventory();
             Bagel bagel = inventory.getPlainBagel();
-            Bagel bagel1 = inventory.getPlainBagel();
-            Bagel bagel2 = inventory.getPlainBagel();
-            Bagel bagel3 = inventory.getPlainBagel();
-
-
-            _basket.Add(bagel);
-            _basket.Add(bagel1);
-            _basket.Add(bagel2);
-            _basket.Add(bagel3);
+            for (int i = 0; i < 4; i++)
+            {
+                _basket.Add(bagel);
+            }
 
 
             Console.WriteLine("Basket Capacity: " + _basket.Capacity);
@@ -139,8 +106,10 @@ namespace exercise.tests
             Assert.That(result, Is.EqualTo(5.95));
         }
 
-        //16x BGLP = 5.55
+        //16x BGLP = 5.95 -- Plain cost 0.49 instead for 0.39
         //   ----
-        //   5.55
+        //   5.95
+
+       
     }
 }
