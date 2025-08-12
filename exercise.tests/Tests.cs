@@ -5,8 +5,6 @@ namespace exercise.tests;
 
 public class Tests
 {
-    
-
     [Test]
     public void AddTest()
     {
@@ -16,7 +14,8 @@ public class Tests
         basket.Add(bagel);
 
         Assert.That(basket.Items[0].Name, Is.EqualTo("Plain"));
-        Assert.That(basket.Capacity, Is.EqualTo(4));
+        Assert.That(basket.Capacity, Is.EqualTo(29));
+        Assert.That(bagel.ID, Is.EqualTo(0));
     }
 
     [Test]
@@ -30,11 +29,9 @@ public class Tests
 
         basket.Add(bagel);
         basket.Add(bagel1);
-        bool result = basket.Remove("Plain");
+        basket.Remove(0);
 
-        Assert.That(result, Is.True);
-        Assert.That(basket.Capacity, Is.EqualTo(4));
-
+        Assert.That(basket.Capacity, Is.EqualTo(29));
     }
 
     [Test]
@@ -80,11 +77,9 @@ public class Tests
         bagel.Name = "Plain";
         basket.Add(bagel);
 
-        bool result = basket.Remove("Plain");
-        bool result2 = basket.Remove("Onion");
+        basket.Remove(0);
         
-        Assert.That(result, Is.True);
-        Assert.That(result2, Is.False);
+        Assert.That(basket.Capacity, Is.EqualTo(30));
 
     }
 

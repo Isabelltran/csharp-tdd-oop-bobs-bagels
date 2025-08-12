@@ -8,8 +8,9 @@ namespace exercise.main.Product
 {
     public interface IProduct
     {
+        string SKU { get; set; }
         string Name { get; set; }
-        string ID { get; set; }
+        int ID { get; set; }
         double Price { get; set; }
     }
 }

@@ -9,7 +9,7 @@ namespace exercise.main.Product
 {
     public class Bagel : IProduct
     {
-
+        
         private double _price;
         private List<Filling> _filling = new List<Filling>();
 
@@ -28,8 +28,9 @@ namespace exercise.main.Product
 
         }
 
+        public string SKU { get; set; }
         public string Name { get; set; }
-        public string ID { get; set; }
+        public int ID { get; set; }
 
         public double BagelPrice { get { return _price; } set { _price = value; } }
 
